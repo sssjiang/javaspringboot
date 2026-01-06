@@ -2,7 +2,7 @@ package com.example.controller;
 
 import com.example.pojo.User;
 import com.example.service.UserService;
-import com.example.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +15,8 @@ import java.util.List;
 @RestController //@Controller + @ResponseBody -----> 如果返回的是一个对象/集合 --> 转json --> 响应
 public class UserController {
 
-    // 先不用IOC/DI，直接通过new创建实现类
-    private final UserService userService = new UserServiceImpl();
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/list")
     public List<User> list(){

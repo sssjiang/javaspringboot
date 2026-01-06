@@ -2,6 +2,7 @@ package com.example.dao.impl;
 
 import cn.hutool.core.io.IoUtil;
 import com.example.dao.UserDao;
+import org.springframework.stereotype.Repository;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * 用户数据访问实现类
  */
+@Repository
 public class UserDaoImpl implements UserDao {
 
     @Override
