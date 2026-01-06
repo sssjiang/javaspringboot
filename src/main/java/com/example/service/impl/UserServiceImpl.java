@@ -1,10 +1,9 @@
 package com.example.service.impl;
 
 import com.example.dao.UserDao;
+import com.example.dao.impl.UserDaoImpl;
 import com.example.pojo.User;
 import com.example.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -13,11 +12,10 @@ import java.util.List;
 /**
  * 用户业务逻辑实现类
  */
-@Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserDao userDao;
+    // 先不用IOC/DI，直接通过new创建Dao实现类
+    private final UserDao userDao = new UserDaoImpl();
 
     @Override
     public List<User> list() {
